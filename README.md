@@ -1,0 +1,20 @@
+Viskastrand CasparCG Client
+==============
+
+Specefikanpassad klient för informationsskärm på Viskastrandsgymnasiet (Borås, Sverige)
+
+http://www.casparcg.com/
+
+**Contributors:** *Karl-Axel Zander, Artur Asgart, Jonatan Borg*
+
+#Will become a sub heading
+#--------------
+#
+#*This will be Italic*
+#
+#**This will be Bold**
+#
+#- This will be a list item
+#- This will be a list item
+#
+#    Add a indent and this will end up as code
