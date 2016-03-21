@@ -1,5 +1,5 @@
-<p align="center">Viskastrand CasparCG Client
-==============</p>
+Viskastrand CasparCG Client
+==============
 
 Specefikanpassad klient för informationsskärm på Viskastrandsgymnasiet (Borås, Sverige)
 
