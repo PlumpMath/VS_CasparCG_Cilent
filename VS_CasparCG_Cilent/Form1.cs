@@ -15,62 +15,73 @@ namespace VS_CasparCG_Cilent
 {
     public partial class Form1 : Form
     {
-        Socket s;
+        //variabler som måste existera imellan metoder
+        TcpClient client; 
+        StreamReader reader;
+        StreamWriter writer;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void connecta_MouseClick(object sender, MouseEventArgs e)
         {
+            string ip = ipadress.Text; //hämta ip-adress från input-ruta
+            int ports = Int32.Parse(port.Text); //hämta portnummer från input-ruta
 
+            client = new TcpClient(ip, ports); //skapa connectionen med servern
+            reader = new StreamReader(client.GetStream());
+            writer = new StreamWriter(client.GetStream());
+            serverstatus.Text = "Connectad till " + ip; //skriv ut statusmeddelande
+            connecta.Enabled = false;
+            disconnect.Enabled = true;
+            skicka.Enabled = true;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void skicka_MouseClick(object sender, MouseEventArgs e)
         {
+            writer.WriteLine(kommando.Text); //skicka kommando från input-ruta till servern
+            writer.Flush();
+            string reply = reader.ReadLine(); //lyssna på svar från servern
+            servermessage.Text = reply;
+            kommando.Clear(); //rensa kommando-rutan
 
+            //ifall servern skickar många rader text tillbaka (tror jag)
+            if (reply.Contains("201"))
+            {
+                reply = reader.ReadLine();
+                servermessage.Text += "\n" + reply;
+            }
+            else if (reply.Contains("200"))
+            {
+                while (reply.Length > 0)
+                {
+                    reply = reader.ReadLine();
+                    servermessage.Text += "\n" + reply;
+                }
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void amcpwiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("http://casparcg.com/wiki/CasparCG_2.0_AMCP_Protocol"); //öppna hemsida
         }
 
-        private void button2_MouseClick(object sender, MouseEventArgs e)
+        private void disconnect_MouseClick(object sender, MouseEventArgs e)
         {
-
-            string ip = ipadress.Text;
-            int ports = Int32.Parse(port.Text);
-
-            IPAddress[] IPs = Dns.GetHostAddresses(ip);
-            s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            s.Connect(IPs[0], ports);
-            serverstatus.Text = "Connected to server\n" + ip + "\n" + ports;
-        }
-
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-             byte[] command = Encoding.ASCII.GetBytes(kommando.Text);
-             s.Send(command);
-            kommando.Clear();
-             byte[] buffer = new byte[50];
-             s.Receive(buffer);
-             servermessage.Text = (Encoding.ASCII.GetString(buffer));
-        }
-
-        private void servermessage_Click(object sender, EventArgs e)
-        {
-
+            //koppla ner ordentligt från servern
+            client.GetStream().Close();
+            client.Close();
+            connecta.Enabled = true;
+            disconnect.Enabled = false;
+            skicka.Enabled = false;
+            serverstatus.Text = "";
+            servermessage.Text = "";
         }
     }
 }

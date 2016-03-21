@@ -28,40 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.skicka = new System.Windows.Forms.Button();
             this.kommando = new System.Windows.Forms.TextBox();
             this.ipadress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.connecta = new System.Windows.Forms.Button();
             this.serverstatus = new System.Windows.Forms.Label();
             this.port = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.servermessage = new System.Windows.Forms.Label();
+            this.amcpwiki = new System.Windows.Forms.LinkLabel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.disconnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // skicka
             // 
-            this.button1.Location = new System.Drawing.Point(96, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Skicka Telnet-kommando";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
+            this.skicka.Enabled = false;
+            this.skicka.Location = new System.Drawing.Point(128, 232);
+            this.skicka.Name = "skicka";
+            this.skicka.Size = new System.Drawing.Size(75, 23);
+            this.skicka.TabIndex = 0;
+            this.skicka.Text = "Skicka";
+            this.skicka.UseVisualStyleBackColor = true;
+            this.skicka.MouseClick += new System.Windows.Forms.MouseEventHandler(this.skicka_MouseClick);
             // 
             // kommando
             // 
-            this.kommando.Location = new System.Drawing.Point(117, 248);
+            this.kommando.Location = new System.Drawing.Point(117, 207);
             this.kommando.Name = "kommando";
             this.kommando.Size = new System.Drawing.Size(100, 20);
             this.kommando.TabIndex = 1;
             // 
             // ipadress
             // 
-            this.ipadress.Location = new System.Drawing.Point(189, 98);
+            this.ipadress.Location = new System.Drawing.Point(203, 71);
             this.ipadress.Name = "ipadress";
             this.ipadress.Size = new System.Drawing.Size(100, 20);
             this.ipadress.TabIndex = 2;
@@ -70,46 +75,47 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(211, 82);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(225, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "IP-Adress";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 227);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(117, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(110, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Kommando";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "AMCP-kommando*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 38);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(40, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(261, 13);
+            this.label3.Size = new System.Drawing.Size(258, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Skicka kommando med Telnet till en CasparCG-server";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Text = "Skicka kommandon till en CasparCG-server med TCP";
             // 
-            // button2
+            // connecta
             // 
-            this.button2.Location = new System.Drawing.Point(199, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
+            this.connecta.Location = new System.Drawing.Point(177, 140);
+            this.connecta.Name = "connecta";
+            this.connecta.Size = new System.Drawing.Size(75, 23);
+            this.connecta.TabIndex = 6;
+            this.connecta.Text = "Connecta";
+            this.connecta.UseVisualStyleBackColor = true;
+            this.connecta.MouseClick += new System.Windows.Forms.MouseEventHandler(this.connecta_MouseClick);
             // 
             // serverstatus
             // 
             this.serverstatus.AutoSize = true;
-            this.serverstatus.Location = new System.Drawing.Point(39, 123);
+            this.serverstatus.Location = new System.Drawing.Point(9, 94);
             this.serverstatus.Name = "serverstatus";
             this.serverstatus.Size = new System.Drawing.Size(94, 13);
             this.serverstatus.TabIndex = 7;
@@ -117,7 +123,7 @@
             // 
             // port
             // 
-            this.port.Location = new System.Drawing.Point(190, 141);
+            this.port.Location = new System.Drawing.Point(204, 114);
             this.port.Name = "port";
             this.port.Size = new System.Drawing.Size(100, 20);
             this.port.TabIndex = 8;
@@ -126,39 +132,96 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(225, 123);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(239, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Port";
             // 
             // servermessage
             // 
             this.servermessage.AutoSize = true;
-            this.servermessage.Location = new System.Drawing.Point(51, 186);
+            this.servermessage.Location = new System.Drawing.Point(29, 156);
             this.servermessage.Name = "servermessage";
             this.servermessage.Size = new System.Drawing.Size(0, 13);
             this.servermessage.TabIndex = 10;
-            this.servermessage.Click += new System.EventHandler(this.servermessage_Click);
+            // 
+            // amcpwiki
+            // 
+            this.amcpwiki.AutoSize = true;
+            this.amcpwiki.Location = new System.Drawing.Point(114, 270);
+            this.amcpwiki.Name = "amcpwiki";
+            this.amcpwiki.Size = new System.Drawing.Size(109, 13);
+            this.amcpwiki.TabIndex = 11;
+            this.amcpwiki.TabStop = true;
+            this.amcpwiki.Text = "CasparCG AMCP-wiki";
+            this.amcpwiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.amcpwiki_LinkClicked);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(90, 287);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "*Advanced Media Control Protocol";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 76);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Connection status";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(25, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Server-svar";
+            // 
+            // disconnect
+            // 
+            this.disconnect.Enabled = false;
+            this.disconnect.Location = new System.Drawing.Point(258, 140);
+            this.disconnect.Name = "disconnect";
+            this.disconnect.Size = new System.Drawing.Size(75, 23);
+            this.disconnect.TabIndex = 15;
+            this.disconnect.Text = "Disconnecta";
+            this.disconnect.UseVisualStyleBackColor = true;
+            this.disconnect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.disconnect_MouseClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 339);
+            this.ClientSize = new System.Drawing.Size(361, 312);
+            this.Controls.Add(this.disconnect);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.amcpwiki);
             this.Controls.Add(this.servermessage);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.port);
             this.Controls.Add(this.serverstatus);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.connecta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ipadress);
             this.Controls.Add(this.kommando);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.skicka);
             this.Name = "Form1";
-            this.Text = "VS CasparCG Client";
+            this.Text = "VS CasparCG Client v1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,17 +230,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button skicka;
         private System.Windows.Forms.TextBox kommando;
         private System.Windows.Forms.TextBox ipadress;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button connecta;
         private System.Windows.Forms.Label serverstatus;
         private System.Windows.Forms.TextBox port;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label servermessage;
+        private System.Windows.Forms.LinkLabel amcpwiki;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button disconnect;
     }
 }
 
