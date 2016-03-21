@@ -13,20 +13,16 @@ using System.Net.Sockets;
 
 namespace VS_CasparCG_Cilent
 {
-    public partial class Form1 : Form
+    public partial class Mainform : Form
     {
-        //variabler som måste existera imellan metoder
+        //variabler som måste existera i mellan metoder
         TcpClient client = null; 
         StreamReader reader;
         StreamWriter writer;
 
-        public Form1()
+        public Mainform()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
         }
 
         private void connecta_MouseClick(object sender, MouseEventArgs e)

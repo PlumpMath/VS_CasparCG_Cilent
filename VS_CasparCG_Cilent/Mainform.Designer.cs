@@ -1,6 +1,6 @@
 ﻿namespace VS_CasparCG_Cilent
 {
-    partial class Form1
+    partial class Mainform
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainform));
             this.skicka = new System.Windows.Forms.Button();
             this.kommando = new System.Windows.Forms.TextBox();
             this.ipadress = new System.Windows.Forms.TextBox();
@@ -200,7 +200,7 @@
             this.disconnect.UseVisualStyleBackColor = true;
             this.disconnect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.disconnect_MouseClick);
             // 
-            // Form1
+            // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,9 +222,8 @@
             this.Controls.Add(this.kommando);
             this.Controls.Add(this.skicka);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Mainform";
             this.Text = "Viskastrand CasparCG Client v1.0";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
