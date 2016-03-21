@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.skicka = new System.Windows.Forms.Button();
             this.kommando = new System.Windows.Forms.TextBox();
             this.ipadress = new System.Windows.Forms.TextBox();
@@ -117,9 +118,9 @@
             this.serverstatus.AutoSize = true;
             this.serverstatus.Location = new System.Drawing.Point(9, 94);
             this.serverstatus.Name = "serverstatus";
-            this.serverstatus.Size = new System.Drawing.Size(94, 13);
+            this.serverstatus.Size = new System.Drawing.Size(73, 13);
             this.serverstatus.TabIndex = 7;
-            this.serverstatus.Text = " Not disconnected";
+            this.serverstatus.Text = "Disconnectad";
             // 
             // port
             // 
@@ -220,8 +221,9 @@
             this.Controls.Add(this.ipadress);
             this.Controls.Add(this.kommando);
             this.Controls.Add(this.skicka);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "VS CasparCG Client v1.0";
+            this.Text = "Viskastrand CasparCG Client v1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
