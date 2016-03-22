@@ -45,6 +45,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.disconnect = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.kommandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.howToConnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // skicka
@@ -89,9 +95,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(117, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 13);
+            this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "AMCP-kommando*";
+            this.label2.Text = "AMCP-Commando*";
             // 
             // label3
             // 
@@ -200,11 +206,52 @@
             this.disconnect.UseVisualStyleBackColor = true;
             this.disconnect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.disconnect_MouseClick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kommandoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(464, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // kommandoToolStripMenuItem
+            // 
+            this.kommandoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.basicCommandsToolStripMenuItem,
+            this.allCommandsToolStripMenuItem,
+            this.howToConnectToolStripMenuItem});
+            this.kommandoToolStripMenuItem.Name = "kommandoToolStripMenuItem";
+            this.kommandoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.kommandoToolStripMenuItem.Text = "Commando";
+            // 
+            // basicCommandsToolStripMenuItem
+            // 
+            this.basicCommandsToolStripMenuItem.Name = "basicCommandsToolStripMenuItem";
+            this.basicCommandsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.basicCommandsToolStripMenuItem.Text = "Basic Commands";
+            this.basicCommandsToolStripMenuItem.Click += new System.EventHandler(this.basicCommandsToolStripMenuItem_Click);
+            // 
+            // allCommandsToolStripMenuItem
+            // 
+            this.allCommandsToolStripMenuItem.Name = "allCommandsToolStripMenuItem";
+            this.allCommandsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.allCommandsToolStripMenuItem.Text = "All Commands";
+            this.allCommandsToolStripMenuItem.Click += new System.EventHandler(this.allCommandsToolStripMenuItem_Click);
+            // 
+            // howToConnectToolStripMenuItem
+            // 
+            this.howToConnectToolStripMenuItem.Name = "howToConnectToolStripMenuItem";
+            this.howToConnectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.howToConnectToolStripMenuItem.Text = "How to connect";
+            this.howToConnectToolStripMenuItem.Click += new System.EventHandler(this.howToConnectToolStripMenuItem_Click);
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 312);
+            this.ClientSize = new System.Drawing.Size(464, 481);
             this.Controls.Add(this.disconnect);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -221,9 +268,13 @@
             this.Controls.Add(this.ipadress);
             this.Controls.Add(this.kommando);
             this.Controls.Add(this.skicka);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Mainform";
             this.Text = "Viskastrand CasparCG Client v1.0";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +298,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button disconnect;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem kommandoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem basicCommandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allCommandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem howToConnectToolStripMenuItem;
     }
 }
 

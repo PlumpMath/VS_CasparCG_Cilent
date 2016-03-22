@@ -95,5 +95,24 @@ namespace VS_CasparCG_Cilent
             serverstatus.Text = "Disconnectad";
             servermessage.Text = "";
         }
+
+        private void basicCommandsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BasicCommands form2 = new BasicCommands(); // öppnar "Basick commands form in menu bar"
+            form2.Show();
+
+
+        }
+
+        private void allCommandsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           System.Diagnostics.Process.Start("http://casparcg.com/wiki/CasparCG_2.0_AMCP_Protocol"); // öppnar sida med "all commands"!
+        }
+
+        private void howToConnectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            How_to_connect form3 = new How_to_connect();
+            form3.Show();
+        }
     }
 }

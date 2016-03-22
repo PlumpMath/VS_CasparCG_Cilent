@@ -63,6 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicCommands.Designer.cs">
+      <DependentUpon>BasicCommands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="How_to_connect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="How_to_connect.Designer.cs">
+      <DependentUpon>How_to_connect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mainform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BasicCommands.resx">
+      <DependentUpon>BasicCommands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="How_to_connect.resx">
+      <DependentUpon>How_to_connect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>
     </EmbeddedResource>
