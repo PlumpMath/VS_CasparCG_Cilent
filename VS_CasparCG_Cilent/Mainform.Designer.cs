@@ -50,6 +50,8 @@
             this.basicCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToConnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,11 +249,31 @@
             this.howToConnectToolStripMenuItem.Text = "How to connect";
             this.howToConnectToolStripMenuItem.Click += new System.EventHandler(this.howToConnectToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(312, 232);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Rullande text";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(285, 169);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(167, 57);
+            this.richTextBox1.TabIndex = 18;
+            this.richTextBox1.Text = "";
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 481);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.disconnect);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -303,6 +325,8 @@
         private System.Windows.Forms.ToolStripMenuItem basicCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem howToConnectToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

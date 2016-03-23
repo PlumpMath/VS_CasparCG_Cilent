@@ -114,5 +114,41 @@ namespace VS_CasparCG_Cilent
             How_to_connect form3 = new How_to_connect();
             form3.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try { 
+                writer.WriteLine(kommando.Text); //skicka kommando från input-ruta till servern
+                writer.Flush();
+                string reply = reader.ReadLine(); //lyssna på svar från servern
+                servermessage.Text = reply;
+                kommando.Clear(); //rensa kommando-rutan
+
+                //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
+                if (reply.Contains("201"))
+                {
+                    reply = reader.ReadLine();
+                    servermessage.Text += "\n" + reply;
+                }
+                else if (reply.Contains("200"))
+                {
+                    while (reply.Length > 0)
+                    {
+                        reply = reader.ReadLine();
+                        servermessage.Text += "\n" + reply;
+                    }
+                }
+            }
+            catch (Exception ee)
+            { //servern har stängts ner eller tappat connection?
+                kommando.Clear();
+                client = null;
+                connecta.Enabled = true;
+                disconnect.Enabled = false;
+                skicka.Enabled = false;
+                serverstatus.Text = "Tappade anslutningen till servern";
+                servermessage.Text = "";
+            }
+        }
     }
 }
