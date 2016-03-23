@@ -40,6 +40,9 @@ namespace VS_CasparCG_Cilent
                 connecta.Enabled = false;
                 disconnect.Enabled = true;
                 skicka.Enabled = true;
+                bakgrund.Enabled = true;
+                rullandetextknapp.Enabled = true;
+                rullandetextknappstop.Enabled = true;
             }
         }
 
@@ -73,6 +76,9 @@ namespace VS_CasparCG_Cilent
                 connecta.Enabled = true;
                 disconnect.Enabled = false;
                 skicka.Enabled = false;
+                bakgrund.Enabled = false;
+                rullandetextknapp.Enabled = false;
+                rullandetextknappstop.Enabled = false;
                 serverstatus.Text = "Tappade anslutningen till servern";
                 servermessage.Text = "";
             }
@@ -92,6 +98,9 @@ namespace VS_CasparCG_Cilent
             connecta.Enabled = true;
             disconnect.Enabled = false;
             skicka.Enabled = false;
+            bakgrund.Enabled = false;
+            rullandetextknapp.Enabled = false;
+            rullandetextknappstop.Enabled = false;
             serverstatus.Text = "Disconnectad";
             servermessage.Text = "";
         }
@@ -115,14 +124,14 @@ namespace VS_CasparCG_Cilent
             form3.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bakgrund_MouseClick(object sender, MouseEventArgs e)
         {
-            try { 
-                writer.WriteLine(kommando.Text); //skicka kommando från input-ruta till servern
+            try
+            {
+                writer.WriteLine("PLAY 1-10 \"VS_BAKGRUND\" CUT 1 Linear RIGHT\r\n"); //skicka kommando från input-ruta till servern
                 writer.Flush();
                 string reply = reader.ReadLine(); //lyssna på svar från servern
                 servermessage.Text = reply;
-                kommando.Clear(); //rensa kommando-rutan
 
                 //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
                 if (reply.Contains("201"))
@@ -141,11 +150,89 @@ namespace VS_CasparCG_Cilent
             }
             catch (Exception ee)
             { //servern har stängts ner eller tappat connection?
-                kommando.Clear();
                 client = null;
                 connecta.Enabled = true;
                 disconnect.Enabled = false;
                 skicka.Enabled = false;
+                bakgrund.Enabled = false;
+                rullandetextknapp.Enabled = false;
+                rullandetextknappstop.Enabled = false;
+                serverstatus.Text = "Tappade anslutningen till servern";
+                servermessage.Text = "";
+            }
+        }
+
+        private void rullandetextknapp_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                writer.WriteLine("CG 1-20 ADD 1 \"RULLANDETEXT\" 1 \"<templateData><componentData id=\\\"f0\\\"><data id=\\\"text\\\" value=\\\"" + rullandetext.Text + "\\\"/></componentData></templateData>\"\r\n"); //skicka kommando från input-ruta till servern
+                writer.Flush();
+                string reply = reader.ReadLine(); //lyssna på svar från servern
+                servermessage.Text = reply;
+
+                //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
+                if (reply.Contains("201"))
+                {
+                    reply = reader.ReadLine();
+                    servermessage.Text += "\n" + reply;
+                }
+                else if (reply.Contains("200"))
+                {
+                    while (reply.Length > 0)
+                    {
+                        reply = reader.ReadLine();
+                        servermessage.Text += "\n" + reply;
+                    }
+                }
+            }
+            catch (Exception ee)
+            { //servern har stängts ner eller tappat connection?
+                client = null;
+                connecta.Enabled = true;
+                disconnect.Enabled = false;
+                skicka.Enabled = false;
+                bakgrund.Enabled = false;
+                rullandetextknapp.Enabled = false;
+                rullandetextknappstop.Enabled = false;
+                serverstatus.Text = "Tappade anslutningen till servern";
+                servermessage.Text = "";
+            }
+        }
+
+        private void rullandetextknappstop_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                writer.WriteLine("CG 1-20 STOP 1\r\n"); //skicka kommando från input-ruta till servern
+                writer.Flush();
+                string reply = reader.ReadLine(); //lyssna på svar från servern
+                servermessage.Text = reply;
+
+                //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
+                if (reply.Contains("201"))
+                {
+                    reply = reader.ReadLine();
+                    servermessage.Text += "\n" + reply;
+                }
+                else if (reply.Contains("200"))
+                {
+                    while (reply.Length > 0)
+                    {
+                        reply = reader.ReadLine();
+                        servermessage.Text += "\n" + reply;
+                    }
+                }
+            }
+            catch (Exception ee)
+            { //servern har stängts ner eller tappat connection?
+                client = null;
+                connecta.Enabled = true;
+                disconnect.Enabled = false;
+                skicka.Enabled = false;
+                bakgrund.Enabled = false;
+                rullandetextknapp.Enabled = false;
+                rullandetextknappstop.Enabled = false;
                 serverstatus.Text = "Tappade anslutningen till servern";
                 servermessage.Text = "";
             }

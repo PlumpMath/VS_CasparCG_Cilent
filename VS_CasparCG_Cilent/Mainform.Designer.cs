@@ -50,15 +50,18 @@
             this.basicCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToConnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rullandetextknapp = new System.Windows.Forms.Button();
+            this.rullandetext = new System.Windows.Forms.RichTextBox();
+            this.bakgrund = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rullandetextknappstop = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // skicka
             // 
             this.skicka.Enabled = false;
-            this.skicka.Location = new System.Drawing.Point(128, 232);
+            this.skicka.Location = new System.Drawing.Point(40, 234);
             this.skicka.Name = "skicka";
             this.skicka.Size = new System.Drawing.Size(75, 23);
             this.skicka.TabIndex = 0;
@@ -68,7 +71,7 @@
             // 
             // kommando
             // 
-            this.kommando.Location = new System.Drawing.Point(117, 207);
+            this.kommando.Location = new System.Drawing.Point(29, 209);
             this.kommando.Name = "kommando";
             this.kommando.Size = new System.Drawing.Size(100, 20);
             this.kommando.TabIndex = 1;
@@ -95,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(117, 187);
+            this.label2.Location = new System.Drawing.Point(29, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 4;
@@ -159,7 +162,7 @@
             // amcpwiki
             // 
             this.amcpwiki.AutoSize = true;
-            this.amcpwiki.Location = new System.Drawing.Point(114, 270);
+            this.amcpwiki.Location = new System.Drawing.Point(26, 272);
             this.amcpwiki.Name = "amcpwiki";
             this.amcpwiki.Size = new System.Drawing.Size(109, 13);
             this.amcpwiki.TabIndex = 11;
@@ -171,7 +174,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(90, 287);
+            this.label4.Location = new System.Drawing.Point(2, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 13);
             this.label4.TabIndex = 12;
@@ -249,31 +252,66 @@
             this.howToConnectToolStripMenuItem.Text = "How to connect";
             this.howToConnectToolStripMenuItem.Click += new System.EventHandler(this.howToConnectToolStripMenuItem_Click);
             // 
-            // button1
+            // rullandetextknapp
             // 
-            this.button1.Location = new System.Drawing.Point(312, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Rullande text";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.rullandetextknapp.Enabled = false;
+            this.rullandetextknapp.Location = new System.Drawing.Point(279, 419);
+            this.rullandetextknapp.Name = "rullandetextknapp";
+            this.rullandetextknapp.Size = new System.Drawing.Size(60, 23);
+            this.rullandetextknapp.TabIndex = 17;
+            this.rullandetextknapp.Text = "Starta";
+            this.rullandetextknapp.UseVisualStyleBackColor = true;
+            this.rullandetextknapp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rullandetextknapp_MouseClick);
             // 
-            // richTextBox1
+            // rullandetext
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(285, 169);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(167, 57);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
+            this.rullandetext.Location = new System.Drawing.Point(268, 356);
+            this.rullandetext.Name = "rullandetext";
+            this.rullandetext.Size = new System.Drawing.Size(167, 57);
+            this.rullandetext.TabIndex = 18;
+            this.rullandetext.Text = "";
+            // 
+            // bakgrund
+            // 
+            this.bakgrund.Enabled = false;
+            this.bakgrund.Location = new System.Drawing.Point(45, 368);
+            this.bakgrund.Name = "bakgrund";
+            this.bakgrund.Size = new System.Drawing.Size(75, 23);
+            this.bakgrund.TabIndex = 19;
+            this.bakgrund.Text = "bakgrund";
+            this.bakgrund.UseVisualStyleBackColor = true;
+            this.bakgrund.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bakgrund_MouseClick);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(288, 335);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Rullande textmeddelande";
+            // 
+            // rullandetextknappstop
+            // 
+            this.rullandetextknappstop.Enabled = false;
+            this.rullandetextknappstop.Location = new System.Drawing.Point(345, 419);
+            this.rullandetextknappstop.Name = "rullandetextknappstop";
+            this.rullandetextknappstop.Size = new System.Drawing.Size(75, 23);
+            this.rullandetextknappstop.TabIndex = 21;
+            this.rullandetextknappstop.Text = "Stoppa";
+            this.rullandetextknappstop.UseVisualStyleBackColor = true;
+            this.rullandetextknappstop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rullandetextknappstop_MouseClick);
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 481);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rullandetextknappstop);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.bakgrund);
+            this.Controls.Add(this.rullandetext);
+            this.Controls.Add(this.rullandetextknapp);
             this.Controls.Add(this.disconnect);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -325,8 +363,11 @@
         private System.Windows.Forms.ToolStripMenuItem basicCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem howToConnectToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button rullandetextknapp;
+        private System.Windows.Forms.RichTextBox rullandetext;
+        private System.Windows.Forms.Button bakgrund;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button rullandetextknappstop;
     }
 }
 
