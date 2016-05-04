@@ -69,6 +69,9 @@
     <Compile Include="BasicCommands.Designer.cs">
       <DependentUpon>BasicCommands.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filedialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="How_to_connect.cs">
       <SubType>Form</SubType>
     </Compile>

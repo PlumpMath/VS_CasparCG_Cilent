@@ -55,6 +55,9 @@
             this.bakgrund = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.rullandetextknappstop = new System.Windows.Forms.Button();
+            this.openFD = new System.Windows.Forms.FolderBrowserDialog();
+            this.bakgrundslista = new System.Windows.Forms.ListBox();
+            this.file = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -274,11 +277,11 @@
             // bakgrund
             // 
             this.bakgrund.Enabled = false;
-            this.bakgrund.Location = new System.Drawing.Point(45, 368);
+            this.bakgrund.Location = new System.Drawing.Point(36, 419);
             this.bakgrund.Name = "bakgrund";
-            this.bakgrund.Size = new System.Drawing.Size(75, 23);
+            this.bakgrund.Size = new System.Drawing.Size(103, 23);
             this.bakgrund.TabIndex = 19;
-            this.bakgrund.Text = "bakgrund";
+            this.bakgrund.Text = "välj bakgrundbild";
             this.bakgrund.UseVisualStyleBackColor = true;
             this.bakgrund.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bakgrund_MouseClick);
             // 
@@ -302,11 +305,31 @@
             this.rullandetextknappstop.UseVisualStyleBackColor = true;
             this.rullandetextknappstop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rullandetextknappstop_MouseClick);
             // 
+            // bakgrundslista
+            // 
+            this.bakgrundslista.FormattingEnabled = true;
+            this.bakgrundslista.Location = new System.Drawing.Point(28, 357);
+            this.bakgrundslista.Name = "bakgrundslista";
+            this.bakgrundslista.Size = new System.Drawing.Size(126, 56);
+            this.bakgrundslista.TabIndex = 22;
+            // 
+            // file
+            // 
+            this.file.Location = new System.Drawing.Point(45, 325);
+            this.file.Name = "file";
+            this.file.Size = new System.Drawing.Size(75, 23);
+            this.file.TabIndex = 23;
+            this.file.Text = "File";
+            this.file.UseVisualStyleBackColor = true;
+            this.file.Click += new System.EventHandler(this.file_Click);
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 481);
+            this.Controls.Add(this.file);
+            this.Controls.Add(this.bakgrundslista);
             this.Controls.Add(this.rullandetextknappstop);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.bakgrund);
@@ -368,6 +391,9 @@
         private System.Windows.Forms.Button bakgrund;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button rullandetextknappstop;
+        private System.Windows.Forms.FolderBrowserDialog openFD;
+        private System.Windows.Forms.ListBox bakgrundslista;
+        private System.Windows.Forms.Button file;
     }
 }
 

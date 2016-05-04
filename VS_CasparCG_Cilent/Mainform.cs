@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Collections;
 
 namespace VS_CasparCG_Cilent
 {
@@ -23,6 +24,12 @@ namespace VS_CasparCG_Cilent
         public Mainform()
         {
             InitializeComponent();
+            string[] bilder = Directory.GetFiles(@"C:\Users\Jonathan Borg\Desktop\CasparCG Server\Server\media\vs_casparcg_client_bakgrunder\", "*.png");
+            ArrayList bakgrunder = new ArrayList();
+            foreach (string bild in bilder)
+                bakgrunder.Add(Path.GetFileName(bild));
+            //TODO leta filnamnen i mappen
+            bakgrundslista.DataSource = bakgrunder;
         }
 
         private void connecta_MouseClick(object sender, MouseEventArgs e)
@@ -126,9 +133,12 @@ namespace VS_CasparCG_Cilent
 
         private void bakgrund_MouseClick(object sender, MouseEventArgs e)
         {
+
             try
             {
-                writer.WriteLine("PLAY 1-10 \"VS_BAKGRUND\" CUT 1 Linear RIGHT\r\n"); //skicka kommando från input-ruta till servern
+                string bakgrundchoice = bakgrundslista.SelectedItem.ToString();
+                //TODO vald bild i bakgrundsliista ska spelas upp istället
+                writer.WriteLine("PLAY 1-10 \"vs_casparcg_client_bakgrunder/" + bakgrundchoice + "\" CUT 1 Linear RIGHT\r\n"); //skicka kommando från input-ruta till servern
                 writer.Flush();
                 string reply = reader.ReadLine(); //lyssna på svar från servern
                 servermessage.Text = reply;
@@ -236,6 +246,14 @@ namespace VS_CasparCG_Cilent
                 serverstatus.Text = "Tappade anslutningen till servern";
                 servermessage.Text = "";
             }
+        }
+
+        private void file_Click(object sender, EventArgs e)
+        {
+            //   Filedialog f = new Filedialog();
+            // f.Show();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            DialogResult result = openFileDialog1.ShowDialog();
         }
     }
 }
