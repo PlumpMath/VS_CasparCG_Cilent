@@ -24,12 +24,12 @@ namespace VS_CasparCG_Cilent
         public Mainform()
         {
             InitializeComponent();
-            string[] bilder = Directory.GetFiles(@"C:\Users\Jonathan Borg\Desktop\CasparCG Server\Server\media\vs_casparcg_client_bakgrunder\", "*.png");
-            ArrayList bakgrunder = new ArrayList();
-            foreach (string bild in bilder)
-                bakgrunder.Add(Path.GetFileName(bild));
+            //string[] bilder = Directory.GetFiles(//@"C:\Users\Jonathan Borg\Desktop\CasparCG Server\Server\media\vs_casparcg_client_bakgrunder\", "*.png");
+            //ArrayList bakgrunder = new ArrayList();
+            //foreach (string bild in bilder)
+                //bakgrunder.Add(Path.GetFileName(bild));
             //TODO leta filnamnen i mappen
-            bakgrundslista.DataSource = bakgrunder;
+            //bakgrundslista.DataSource = bakgrunder;
         }
 
         private void connecta_MouseClick(object sender, MouseEventArgs e)
@@ -252,8 +252,25 @@ namespace VS_CasparCG_Cilent
         {
             //   Filedialog f = new Filedialog();
             // f.Show();
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            DialogResult result = openFileDialog1.ShowDialog();
+             //OpenFileDialog openFileDialog1 = new OpenFileDialog();
+           //  DialogResult result = openFileDialog1.ShowDialog();
+            FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
+           if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                bakgrundslista.Items.Clear();
+                string[] files = Directory.GetFiles(openFileDialog1.SelectedPath);
+                string[] dirs = Directory.GetDirectories(openFileDialog1.SelectedPath);
+
+                foreach (string file in files)
+                {
+                    bakgrundslista.Items.Add(Path.GetFileName(file));             
+                }
+                foreach(string dir in dirs)
+                {
+                   bakgrundslista.Items.Add(Path.GetFileName((dir)));
+
+                }
+            }
         }
     }
 }
