@@ -21,6 +21,7 @@ namespace VS_CasparCG_Cilent
         StreamReader reader;
         StreamWriter writer;
         string bilder = "";
+        string savedFile = "C:\\users\\" + Environment.GetEnvironmentVariable("USERNAME") + "\\documents\\VS_CasparCG_Client.txt";
 
         public Mainform()
         {
@@ -31,16 +32,31 @@ namespace VS_CasparCG_Cilent
             //bakgrunder.Add(Path.GetFileName(bild));
             //TODO leta filnamnen i mappen
             //bakgrundslista.DataSource = bakgrunder;
-            if (!bilder.Equals(""))
-                getBildPath(); 
+            if (File.Exists(savedFile))
+            { //if path exist
+                bilder = getBildPath();
+                string[] files = Directory.GetFiles(bilder);
+                string[] dirs = Directory.GetDirectories(bilder);
+
+                foreach (string file in files)
+                {
+                    bakgrundslista.Items.Add(Path.GetFileName(file));
+                }
+                foreach (string dir in dirs)
+                {
+                    bakgrundslista.Items.Add(Path.GetFileName((dir)));
+
+                }
+            }
         }
         string getBildPath()
         {
-            return null;
+            return System.IO.File.ReadAllText(savedFile);
         }
         
         void setBildPath()
         {
+            System.IO.File.WriteAllText(savedFile, bilder);
 
         }
 
