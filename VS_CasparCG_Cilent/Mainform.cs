@@ -21,7 +21,9 @@ namespace VS_CasparCG_Cilent
         StreamReader reader;
         StreamWriter writer;
         string bilder = "";
-        string savedFile = "C:\\users\\" + Environment.GetEnvironmentVariable("USERNAME") + "\\documents\\VS_CasparCG_Client.txt";
+        //string savedFile = "C:\\users\\" + Environment.GetEnvironmentVariable("USERNAME") + "\\documents\\VS_CasparCG_Client.txt";
+        //TODO %USERPROFILE% DON'T WORK WTF
+        string savedFile = Environment.GetEnvironmentVariable("TMP") + "\\VS_CasparCG_Client.txt";
 
         public Mainform()
         {
