@@ -6,6 +6,7 @@ Specefikanpassad klient (till video play-out systemet CasparCG) för information
 Mer om CasparCG: http://www.casparcg.com/
 
 Quick-start guide (för v2.0):
+
 1. Ladda ner programmet under "release" på denna sidan (https://github.com/viskastrand/VS_CasparCG_Cilent)
 
 2. Starta programmet via .exe-filen (endast för Windows för tillfället, för OS X kompatibilitet, kör via http://www.mono-project.com/)
