@@ -14,10 +14,10 @@ using System.Collections;
 
 namespace VS_CasparCG_Cilent
 {
-    public partial class Mainform : Form
+    public partial class AdvancedView : Form
     {
         //variabler som måste existera i mellan metoder
-        TcpClient client = null; 
+        TcpClient client = null;
         StreamReader reader;
         StreamWriter writer;
         string bilder = "";
@@ -25,7 +25,7 @@ namespace VS_CasparCG_Cilent
         //TODO %USERPROFILE% DON'T WORK WTF
         string savedFile = Environment.GetEnvironmentVariable("TMP") + "\\VS_CasparCG_Client.txt";
 
-        public Mainform()
+        public AdvancedView()
         {
             InitializeComponent();
             //string[] bilder = Directory.GetFiles(@"C:\Users\Jonathan Borg\Desktop\CasparCG Server\Server\media\vs_casparcg_client_bakgrunder\", "*.png");
@@ -55,14 +55,14 @@ namespace VS_CasparCG_Cilent
         {
             return System.IO.File.ReadAllText(savedFile);
         }
-        
+
         void setBildPath()
         {
             System.IO.File.WriteAllText(savedFile, bilder);
 
         }
 
-        private void connecta_MouseClick(object sender, MouseEventArgs e)
+        private void connecta_MouseClick_1(object sender, MouseEventArgs e)
         {
             string ip = ipadress.Text; //hämta ip-adress från input-ruta
             int ports = Int32.Parse(port.Text); //hämta portnummer från input-ruta
@@ -76,7 +76,7 @@ namespace VS_CasparCG_Cilent
                 serverstatus.Text = "Connectad till " + ip; //skriv ut statusmeddelande
                 connecta.Enabled = false;
                 disconnect.Enabled = true;
-                skicka.Enabled = true;
+                //skicka.Enabled = true;
                 bakgrund.Enabled = true;
                 rullandetextknapp.Enabled = true;
                 rullandetextknappstop.Enabled = true;
@@ -85,40 +85,7 @@ namespace VS_CasparCG_Cilent
 
         private void skicka_MouseClick(object sender, MouseEventArgs e)
         {
-            try { 
-                writer.WriteLine(kommando.Text); //skicka kommando från input-ruta till servern
-                writer.Flush();
-                string reply = reader.ReadLine(); //lyssna på svar från servern
-                servermessage.Text = reply;
-                kommando.Clear(); //rensa kommando-rutan
 
-                //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
-                if (reply.Contains("201"))
-                {
-                    reply = reader.ReadLine();
-                    servermessage.Text += "\n" + reply;
-                }
-                else if (reply.Contains("200"))
-                {
-                    while (reply.Length > 0)
-                    {
-                        reply = reader.ReadLine();
-                        servermessage.Text += "\n" + reply;
-                    }
-                }
-            }
-            catch (Exception ee) { //servern har stängts ner eller tappat connection?
-                kommando.Clear();
-                client = null;
-                connecta.Enabled = true;
-                disconnect.Enabled = false;
-                skicka.Enabled = false;
-                bakgrund.Enabled = false;
-                rullandetextknapp.Enabled = false;
-                rullandetextknappstop.Enabled = false;
-                serverstatus.Text = "Tappade anslutningen till servern";
-                servermessage.Text = "";
-            }
         }
 
         private void amcpwiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -134,12 +101,12 @@ namespace VS_CasparCG_Cilent
             client = null;
             connecta.Enabled = true;
             disconnect.Enabled = false;
-            skicka.Enabled = false;
+            //skicka.Enabled = false;
             bakgrund.Enabled = false;
             rullandetextknapp.Enabled = false;
             rullandetextknappstop.Enabled = false;
             serverstatus.Text = "Disconnectad";
-            servermessage.Text = "";
+            //servermessage.Text = "";
         }
 
         private void basicCommandsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,7 +119,7 @@ namespace VS_CasparCG_Cilent
 
         private void allCommandsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           System.Diagnostics.Process.Start("http://casparcg.com/wiki/CasparCG_2.0_AMCP_Protocol"); // öppnar sida med "all commands"!
+            //  System.Diagnostics.Process.Start("http://casparcg.com/wiki/CasparCG_2.0_AMCP_Protocol"); // öppnar sida med "all commands"!
         }
 
         private void howToConnectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -171,20 +138,20 @@ namespace VS_CasparCG_Cilent
                 writer.WriteLine("PLAY 1-10 \"vs_casparcg_client_bakgrunder/" + bakgrundchoice + "\" CUT 1 Linear RIGHT\r\n"); //skicka kommando från input-ruta till servern
                 writer.Flush();
                 string reply = reader.ReadLine(); //lyssna på svar från servern
-                servermessage.Text = reply;
+                                                  //  servermessage.Text = reply;
 
                 //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
                 if (reply.Contains("201"))
                 {
                     reply = reader.ReadLine();
-                    servermessage.Text += "\n" + reply;
+                    //    servermessage.Text += "\n" + reply;
                 }
                 else if (reply.Contains("200"))
                 {
                     while (reply.Length > 0)
                     {
                         reply = reader.ReadLine();
-                        servermessage.Text += "\n" + reply;
+                        //      servermessage.Text += "\n" + reply;
                     }
                 }
             }
@@ -193,12 +160,12 @@ namespace VS_CasparCG_Cilent
                 client = null;
                 connecta.Enabled = true;
                 disconnect.Enabled = false;
-                skicka.Enabled = false;
+                //skicka.Enabled = false;
                 bakgrund.Enabled = false;
                 rullandetextknapp.Enabled = false;
                 rullandetextknappstop.Enabled = false;
                 serverstatus.Text = "Tappade anslutningen till servern";
-                servermessage.Text = "";
+                //servermessage.Text = "";
             }
         }
 
@@ -209,20 +176,20 @@ namespace VS_CasparCG_Cilent
                 writer.WriteLine("CG 1-20 ADD 1 \"RULLANDETEXT\" 1 \"<templateData><componentData id=\\\"f0\\\"><data id=\\\"text\\\" value=\\\"" + rullandetext.Text + "\\\"/></componentData></templateData>\"\r\n"); //skicka kommando från input-ruta till servern
                 writer.Flush();
                 string reply = reader.ReadLine(); //lyssna på svar från servern
-                servermessage.Text = reply;
+                //servermessage.Text = reply;
 
                 //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
                 if (reply.Contains("201"))
                 {
                     reply = reader.ReadLine();
-                    servermessage.Text += "\n" + reply;
+                    //  servermessage.Text += "\n" + reply;
                 }
                 else if (reply.Contains("200"))
                 {
                     while (reply.Length > 0)
                     {
                         reply = reader.ReadLine();
-                        servermessage.Text += "\n" + reply;
+                        //    servermessage.Text += "\n" + reply;
                     }
                 }
             }
@@ -231,12 +198,12 @@ namespace VS_CasparCG_Cilent
                 client = null;
                 connecta.Enabled = true;
                 disconnect.Enabled = false;
-                skicka.Enabled = false;
+                //skicka.Enabled = false;
                 bakgrund.Enabled = false;
                 rullandetextknapp.Enabled = false;
                 rullandetextknappstop.Enabled = false;
                 serverstatus.Text = "Tappade anslutningen till servern";
-                servermessage.Text = "";
+                //servermessage.Text = "";
             }
         }
 
@@ -247,20 +214,20 @@ namespace VS_CasparCG_Cilent
                 writer.WriteLine("CG 1-20 STOP 1\r\n"); //skicka kommando från input-ruta till servern
                 writer.Flush();
                 string reply = reader.ReadLine(); //lyssna på svar från servern
-                servermessage.Text = reply;
+                //servermessage.Text = reply;
 
                 //ifall servern skickar många rader text tillbaka (tror jag, olika returnkoder, taget från färdigt exempel)
                 if (reply.Contains("201"))
                 {
                     reply = reader.ReadLine();
-                    servermessage.Text += "\n" + reply;
+                    //  servermessage.Text += "\n" + reply;
                 }
                 else if (reply.Contains("200"))
                 {
                     while (reply.Length > 0)
                     {
                         reply = reader.ReadLine();
-                        servermessage.Text += "\n" + reply;
+                        //    servermessage.Text += "\n" + reply;
                     }
                 }
             }
@@ -269,12 +236,12 @@ namespace VS_CasparCG_Cilent
                 client = null;
                 connecta.Enabled = true;
                 disconnect.Enabled = false;
-                skicka.Enabled = false;
+                //skicka.Enabled = false;
                 bakgrund.Enabled = false;
                 rullandetextknapp.Enabled = false;
                 rullandetextknappstop.Enabled = false;
                 serverstatus.Text = "Tappade anslutningen till servern";
-                servermessage.Text = "";
+                //servermessage.Text = "";
             }
         }
 
@@ -282,10 +249,10 @@ namespace VS_CasparCG_Cilent
         {
             //   Filedialog f = new Filedialog();
             // f.Show();
-             //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-           //  DialogResult result = openFileDialog1.ShowDialog();
+            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            //  DialogResult result = openFileDialog1.ShowDialog();
             FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
-           if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 bilder = openFileDialog1.SelectedPath;
                 setBildPath();
@@ -295,14 +262,30 @@ namespace VS_CasparCG_Cilent
 
                 foreach (string file in files)
                 {
-                    bakgrundslista.Items.Add(Path.GetFileName(file));             
+                    bakgrundslista.Items.Add(Path.GetFileName(file));
                 }
-                foreach(string dir in dirs)
+                foreach (string dir in dirs)
                 {
-                   bakgrundslista.Items.Add(Path.GetFileName((dir)));
+                    bakgrundslista.Items.Add(Path.GetFileName((dir)));
 
                 }
             }
+        }
+
+        
+
+        private void hjälpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            childForm form2 = new childForm(); // öppnar "Basick commands form in menu bar"
+            form2.Show();
+        }
+
+        private void avanceratLägeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form2 = new AdvancedView();
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
     }
 }

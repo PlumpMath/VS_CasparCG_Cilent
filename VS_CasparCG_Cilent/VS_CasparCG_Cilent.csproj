@@ -63,11 +63,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedView.Designer.cs">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicCommands.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BasicCommands.Designer.cs">
       <DependentUpon>BasicCommands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="childForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="childForm.Designer.cs">
+      <DependentUpon>childForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Filedialog.cs">
       <SubType>Form</SubType>
@@ -78,22 +90,28 @@
     <Compile Include="How_to_connect.Designer.cs">
       <DependentUpon>How_to_connect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mainform.cs">
+    <Compile Include="BasicView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mainform.Designer.cs">
-      <DependentUpon>Mainform.cs</DependentUpon>
+    <Compile Include="BasicView.Designer.cs">
+      <DependentUpon>BasicView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdvancedView.resx">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicCommands.resx">
       <DependentUpon>BasicCommands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="childForm.resx">
+      <DependentUpon>childForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="How_to_connect.resx">
       <DependentUpon>How_to_connect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mainform.resx">
-      <DependentUpon>Mainform.cs</DependentUpon>
+    <EmbeddedResource Include="BasicView.resx">
+      <DependentUpon>BasicView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
