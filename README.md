@@ -3,9 +3,9 @@ Viskastrand CasparCG Client
 
 Specefikanpassad klient (till video play-out systemet CasparCG) för informationsskärm på Viskastrandsgymnasiet (Borås, Sverige)
 
-Mer om CasparCG: http://www.casparcg.com/
+Info om CasparCG: http://www.casparcg.com/
 
-Quick-start guide (för v2.0):
+**Quick-start guide (för v2.0):**
 
 1. Ladda ner programmet under "release" på denna sidan (https://github.com/viskastrand/VS_CasparCG_Cilent)
 
